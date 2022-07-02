@@ -16,21 +16,10 @@ module.exports = gql`
   }
 
   type Mutation {
-    addWorkout(input: AddWorkout!): Workout!
-    updateWorkout(input: UpdateWorkout): Workout!
+    addWorkout(title: String!, reps: Int!, load: Int!): Workout!
+    updateWorkout(_id: ID!, title: String, reps: Int, load: Int): Workout!
     deleteWorkout(_id: ID!): Workout!
   }
 
-  input AddWorkout {
-    title: String!
-    reps: Int!
-    load: Int!
-  }
-  
-  input UpdateWorkout {
-    _id: ID!
-    title: String
-    reps: Int
-    load: Int
-  }
+
 `;

@@ -6,8 +6,10 @@ const workoutRoutes = require("./routes/workouts");
 const typeDefs = require("./graphqlSchema/typeDefs");
 const { Query } = require("./resolvers/Query");
 const { Mutation } = require("./resolvers/Mutation")
+const cors = require('cors')
 const app = express();
 
+app.use(cors())
 
 let apolloServer = null;
 async function startServer() {
@@ -40,7 +42,7 @@ mongoose
   .connect(process.env.MONGO_URI)
   .then(() => {
     app.listen(process.env.PORT, () => {
-        console.log("Connected to db $ Server started at localhost:5000");
+        console.log("Connected to db $ Server started at localhost:4000");
       });
       
   })
