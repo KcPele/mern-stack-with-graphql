@@ -14,14 +14,16 @@ const Home = () => {
         const response = await fetch("http://localhost:4000/api/workouts")
         const json = await response.json()
         if(!response.ok) {
-               throw Error(" un able to fetch workout")
+          console.log('no workout fetched')
+              //  throw Error(" un able to fetch workout")
         }  else {
          dispatch({type: "SET_WORKOUTS", payload: json})
         }
     
         
       } catch (error) {
-        throw Error(error.message)
+        // throw Error(error.message)
+        console.log(error.message)
       }
     }
     fetcheWorkouts()

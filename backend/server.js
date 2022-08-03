@@ -3,6 +3,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const { ApolloServer } = require("apollo-server-express");
 const workoutRoutes = require("./routes/workouts");
+const userRoutes = require("./routes/user")
 const typeDefs = require("./graphqlSchema/typeDefs");
 const { Query } = require("./resolvers/Query");
 const { Mutation } = require("./resolvers/Mutation")
@@ -36,6 +37,7 @@ app.use(express.json());
 // });
 
 app.use("/api/workouts", workoutRoutes);
+app.use("/api/users", userRoutes);
 // connect the db
 
 mongoose

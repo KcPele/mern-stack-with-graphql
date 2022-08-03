@@ -1,13 +1,15 @@
 import '../styles/globals.css'
 import Head from 'next/head'
 import { Toaster } from 'react-hot-toast'
-import { Navbar } from '../components';
+import {Navbar}  from '../components';
 import WorkoutContextProvider from "../context/WorkoutContext"
+import AuthContextProvider from '../context/AuthContext';
 function MyApp({ Component, pageProps }) {
 
 
   return (
    <>
+   <AuthContextProvider>
    <WorkoutContextProvider >
    <Head>
         <title>Mern Stack Graphql</title>
@@ -19,7 +21,9 @@ function MyApp({ Component, pageProps }) {
       <Toaster />
     
       <Component {...pageProps} />
+      
       </WorkoutContextProvider>
+      </AuthContextProvider>
       </>
   )
 }
